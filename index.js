@@ -72,7 +72,9 @@
              ctx.fillStyle="blue";
              }
          function game()
-        {  if(!Paused)
+
+        { audio.play();
+                  if(!Paused)
            { 
                   ctx.clearRect(0,0,canvas.width,canvas.height);
              drawman(); drawarrow();drawbullseye();drawheart();drawmale();
@@ -198,15 +200,7 @@ function drawheart()
       Paused=true;
   }
 }
-document.getElementById("music").onClick=function(){
-if(audio.play())
-{audio.pause();
- audio.currentTime=0;
-}
-else
-{audio.play();
-}
-}
+
                 
 
 var interval=setInterval(game,100);

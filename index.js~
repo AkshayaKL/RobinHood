@@ -198,15 +198,7 @@ function drawheart()
       Paused=true;
   }
 }
-document.getElementById("music").onClick=function(){
-if(audio.play())
-{audio.pause();
- audio.currentTime=0;
-}
-else
-{audio.play();
-}
-}
+
                 
 
 var interval=setInterval(game,100);
