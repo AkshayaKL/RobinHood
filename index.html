@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=360, initial-scale=1 ,height=device-height" >
+  <link rel="stylesheet" href="style.css">
+  <title>Robin Hood</title>
+  </head>
+<body>
+  <canvas id="mycanvas"></canvas>
+  <span>Score:  <a id="score"></a></span>
+  <span id="targetz">
+<audio id="audio" src="music.mp3" autostart="false"></audio>
+<button id="music">music</button>
+   <ul>
+   <li>Use up and down arrow keys to move archer</li>
+   
+   <li>Press 'P' to pause the game at any instant and press 'P' again to resume</li>
+    <li>Press spaceBar to shoot arrows</li>
+    <li>If you shoot right into the innermostCircle,+10</li>
+    <li>If you shoot anywhere in the second innermostcircle,+5</li>
+    <li>Anywhere else inside the target,you get+2</li>
+    <li>If your arrow touches a particular position longer,you get more points</li>
+    </ul>  
+</span>
+   <img src="archer.png" id="archer"></img>
+   <img style="display:none" id="heart" src="heart.gif"></img>
+   <img  id="farcher" src="farcher.png" style="display:none"></img>
+   <img style="display:none" id="male" src="male.png"></img>
+   <img style="display:none" id="three" src="three.png"></img>
+<script src="index.js"></script>
+  
+</body>

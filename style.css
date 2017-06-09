@@ -1,0 +1,24 @@
+  #mycanvas
+{
+  border:2px solid black;
+  width:500px;
+  height:500px;
+  background:url(/home/home/Desktop/RobinHood/picture.jpg);
+}
+#targetz
+{
+  position:absolute;
+  left:600px;
+  top:100px;
+  border:1px solid black;
+  
+  background-color: #ADD8E6 ;
+}
+#score
+{
+color:white;
+}
+ body
+{
+background:black;
+}
