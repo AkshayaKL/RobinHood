@@ -2,6 +2,7 @@
        var ctx=canvas.getContext("2d");
        var audio=document.getElementById("audio");
        audio.play(); 
+       alert("Read instructions on the right hand side before proceeding");
        var arrowX=20;
        var arrowY=50;
        var arrowLength=25;
@@ -22,6 +23,7 @@
        var malex=80;
        var maley=10;   
        var Paused=false; 
+       var gamecount=0;
       drawbullseye();
       drawarrow();
       document.addEventListener("keydown",shoot,false);
@@ -72,7 +74,9 @@
              ctx.fillStyle="blue";
              }
          function game()
-        {  if(!Paused)
+
+        { audio.play();
+                  if(!Paused)
            { 
                   ctx.clearRect(0,0,canvas.width,canvas.height);
              drawman(); drawarrow();drawbullseye();drawheart();drawmale();
@@ -81,6 +85,7 @@
                  ctx.drawImage(img,ax,ay,30,30);}
                     
                    if(played)      {
+                                   
                                  
                                  drawman();
                                  drawbullseye();
@@ -99,12 +104,21 @@
                    drawarrow();
                    played=false;
                         arrowX=20;
-                           
+                      gamecount++;     
                      }
 
-                 
+                                     if(((Math.abs(ccx-arrowX-arrowLength)<15)&&(Math.abs(ccy-arrowY)<15))&&((Math.abs(ccx-arrowX-arrowLength)>5)&&(Math.abs(ccy-arrowY)>5)))
+                     {score=score+2;
+                        document.getElementById("targetz").innerHTML="<b>KEEP TRYING HARDER</b>";
+                           
+                       }
+                else  if(((Math.abs(ccx-arrowX-arrowLength)<5)&&(Math.abs(ccy-arrowY)<5))&&((Math.abs(ccx-arrowX-arrowLength)>=3)&&(Math.abs(ccy-arrowY)>=3)))
+                       { score=score+5;
+                           document.getElementById("targetz").innerHTML="<b>Ouch!Nearly Missed It</b>"; 
+                            }
+
                               
-                  if((Math.abs(ccx-arrowX-arrowLength)<=3)&&(Math.abs(ccy-arrowY)<=3))
+                  else if((Math.abs(ccx-arrowX-arrowLength)<=3)&&(Math.abs(ccy-arrowY)<=3))
                        {
                           score=score+10;
                            document.getElementById("targetz").innerHTML="<b>hurray!<b>"; 
@@ -112,15 +126,7 @@
                         }      
                            
                         
-                   else  if(((Math.abs(ccx-arrowX-arrowLength)<5)&&(Math.abs(ccy-arrowY)<5))&&((Math.abs(ccx-arrowX-arrowLength)>=3)&&(Math.abs(ccy-arrowY)>=3)))
-                       { score=score+5;
-                           document.getElementById("targetz").innerHTML="<b>Ouch!Nearly Missed It</b>"; 
-                            }
-                   else if(((Math.abs(ccx-arrowX-arrowLength)<15)&&(Math.abs(ccy-arrowY)<15))&&((Math.abs(ccx-arrowX-arrowLength)>5)&&(Math.abs(ccy-arrowY)>5)))
-                     {score=score+2;
-                        document.getElementById("targetz").innerHTML="<b>KEEP TRYING HARDER</b>";
-                           
-                       }
+                   
                      if((Math.abs(heartx-arrowX-arrowLength)<5)&&(Math.abs(hearty-arrowY)<5))
                        img=document.getElementById("farcher");
                        if((Math.abs(malex-arrowX-arrowLength)<5)&&(Math.abs(maley-arrowY)<5))
@@ -128,9 +134,12 @@
 
 
                      document.getElementById("score").innerHTML=score;
-                                     
+                      document.getElementById("arrowsused" ).innerHTML=gamecount;              
                            
-                      }                     
+                      }
+                   if(gamecount==10) 
+                      {clearInterval(interval);
+                       document.getElementById("targetz").innerHTML="<b>GAME OVER</b>"+"<br />"+"Score="+score}                                                  
              
    
                   }
@@ -147,7 +156,7 @@ function shoot(e)
 function moveup(e)
 {
   if(e.keyCode===38)
-{if((arrowY>=0)&&(arrowX==20))
+{if((arrowY>=0)&&(arrowX==20)&&(gamecount!=10))
   
  
 
@@ -162,7 +171,7 @@ ctx.drawImage(img,ax,ay,30,30);
 function movedown(e)
 {
 if(e.keyCode===40)
-{if((arrowY<=canvas.height)&&(arrowX==20))
+{if((arrowY<=canvas.height)&&(arrowX==20)&&(gamecount!=10))
 
 
 {
@@ -200,7 +209,6 @@ function drawheart()
 }
 
                 
-
 var interval=setInterval(game,100);
 
 
