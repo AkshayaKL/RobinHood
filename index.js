@@ -14,16 +14,22 @@
        var score=0;
        var ax=2;
        var ay=40;
-       var heartx=80;
-       var hearty=80; 
+       var heartx=220;
+       var hearty=80;
+       var minusx=150;
+       var minusy=100; 
+       var minus=document.getElementById("minus");
        var img=document.getElementById("archer");
        var heart=document.getElementById("heart");
        var farcher=document.getElementById("farcher");
        var male=document.getElementById("male");
+       var three=document.getElementById("three");  
        var malex=80;
-       var maley=10;   
+       var maley=10;
+       var minuscount;   
        var Paused=false; 
-       var gamecount=0;//declaring variables
+             var gamecount=0;//declaring variables
+       var starcount=0; 
       drawbullseye();
       drawarrow();
       document.addEventListener("keydown",shoot,false);
@@ -72,14 +78,24 @@
              ctx.arc(ccx,ccy,3,0,Math.PI*2,true);
              ctx.fill();
              ctx.fillStyle="blue";
+             
              }//this is to draw the target in positions desired
          function game()
 
-        { audio.play();
+        {     
+              audio.play();
                   if(!Paused)
            { 
                   ctx.clearRect(0,0,canvas.width,canvas.height);
-             drawman(); drawarrow();drawbullseye();drawheart();drawmale();
+             drawman(); drawarrow();drawbullseye();drawheart();drawmale();drawminus();
+            {
+               if((starcount%5==1)&&(gamecount<10))
+               drawthree();
+                else
+                 threex=0;
+                 threey=0;
+             } 
+             
                 if(arrowX==20)
                 { ay=arrowY-10;
                  ctx.drawImage(img,ax,ay,30,30);}
@@ -101,10 +117,12 @@
                     } 
                   if(arrowLength+arrowX==canvas.width)
                   {
+                    minuscount=0;
                    drawarrow();
                    played=false;
                         arrowX=20;
-                      gamecount++;     
+                      gamecount++;
+                      starcount++;      
                      }
 
                                      if(((Math.abs(ccx-arrowX-arrowLength)<15)&&(Math.abs(ccy-arrowY)<15))&&((Math.abs(ccx-arrowX-arrowLength)>5)&&(Math.abs(ccy-arrowY)>5)))
@@ -131,8 +149,14 @@
                        img=document.getElementById("farcher");
                        if((Math.abs(malex-arrowX-arrowLength)<5)&&(Math.abs(maley-arrowY)<5))
                        img=document.getElementById("archer");  
-
-
+                        if((Math.abs(threex-arrowX-arrowLength)<10)&(Math.abs(threey-arrowY)<10))
+                         score*=10;
+                        if((Math.abs(minusx-arrowX-arrowLength)<5)&&(Math.abs(minusy-arrowY)<5))
+                          {  minuscount++;
+                            if(minuscount==1)
+                           --score;
+                            
+                           }
                      document.getElementById("score").innerHTML=score;
                       document.getElementById("arrowsused" ).innerHTML=gamecount;              
                            
@@ -191,10 +215,19 @@
               {
                 ctx.drawImage(heart,heartx,hearty,5,5);
                }
+               function drawthree()
+               { var threex=((Math.random() * 300) + 50);
+                 var threey=((Math.random() * 100) + 1);
+                ctx.drawImage(three,threex,threey,10,10);
+                 }    
                function drawmale()
                {
                   ctx.drawImage(male,malex,maley,5,5)
                 }
+               function drawminus()
+                {
+                  ctx.drawImage(minus,minusx,minusy,5,5)
+                 } 
                function gamepause(e)
                 {
                     if(e.keyCode===80)
