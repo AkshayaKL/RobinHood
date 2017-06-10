@@ -30,6 +30,7 @@
                             <img  id="farcher" src="farcher.png" style="display:none"></img>
                             <img style="display:none" id="male" src="male.png"></img>
                           <img style="display:none" id="three" src="three.png"></img>
+                           <img style="display:none" id="minus" src="minus.png"></img> 
                           <p style="color:white">Arrows used :<a id="arrowsused" style="color:white"></a></p> 
                             <script src="index.js"></script>
   

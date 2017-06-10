@@ -23,7 +23,8 @@
        var heart=document.getElementById("heart");
        var farcher=document.getElementById("farcher");
        var male=document.getElementById("male");
-       var three=document.getElementById("three");  
+       var three=document.getElementById("three"); 
+        
        var malex=80;
        var maley=10;
        var minuscount;   
@@ -36,7 +37,9 @@
       document.getElementById("score").innerHTML=score;//getting a place to store score
       document.addEventListener("keydown",moveup,false);
       document.addEventListener("keydown",movedown,false);
-      document.addEventListener("keydown",gamepause,false);//adding Event Listeners for keyboard activities
+      var restart=document.getElementById("restart");
+      document.addEventListener("keydown",gamepause,false);
+       restart.addEventListener("click",restarting);         //adding Event Listeners for keyboard activities
       function drawarrow()
        {
   
@@ -190,6 +193,10 @@
                 }                  
   
               }
+              function restarting()
+               {
+                  location.reload();
+                }
               function movedown(e)
              {
                  if(e.keyCode===40)
