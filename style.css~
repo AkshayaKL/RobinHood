@@ -8,11 +8,11 @@
 #targetz
 {
   position:absolute;
-  left:520px;
+  left:510px;
   top:100px;
   border:1px solid black;
   
-  background-color: #ADD8E6 ;
+  background-color:#87CEFA;
 }
 #score
 {
@@ -27,5 +27,11 @@ background:black;
  width:60px;
  height:40px;
 }
+button
+{
+ background-color:#191970;
+ color:white;
 
+;
+}
 
