@@ -283,7 +283,7 @@
                      }
                        }
                function shootp()
-                {
+                {  audio.play();
                    played=true;
                  }  
 
