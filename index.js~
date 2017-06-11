@@ -4,7 +4,7 @@
        audio.play(); 
        alert("Read instructions on the right hand side before proceeding..");
        if('ontouchstart' in window){
-       alert("swipe left,look into instructions..touching on gamearea fires arrows..use up and down buttons to move");
+       alert("Look into instructions..touching on gamearea fires arrows..use up and down buttons to move");
         
        }
        var arrowX=20;
@@ -28,7 +28,7 @@
        var farcher=document.getElementById("farcher");
        var male=document.getElementById("male");
        var three=document.getElementById("three"); 
-        
+       var pause=document.getElementById("pause"); 
        var malex=80;
        var maley=10;
        var minuscount;   
@@ -49,6 +49,7 @@
       canvas.addEventListener("touchend",shootp,false);
       up.addEventListener("touchend",moveupp,false);
       down.addEventListener("touchend",movedownn,false); 
+      pause.addEventListener("click",pauses,false);
         function drawarrow()
        {
   
@@ -293,8 +294,20 @@
                              ctx.fillStyle = "red";
                      ctx.textAlign = "center";
                  ctx.fillText("Game Over", canvas.width/2, canvas.height/2);
-                       }
 
+                       }
+              function pauses()
+                {
+                     if(Paused)  
+                          { Paused=false;
+                            
+                             }
+                                
+                         else
+                         { Paused=true;
+                           
+                           }      
+                 }
                 
          var interval=setInterval(game,100);//set interval to make the movements happen continuously
 
