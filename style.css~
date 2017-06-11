@@ -8,7 +8,7 @@
 #targetz
 {
   position:absolute;
-  left:600px;
+  left:520px;
   top:100px;
   border:1px solid black;
   
@@ -24,7 +24,7 @@ background:black;
 }
 #arrow-up,#arrow-down
 {
- width:40px;
+ width:60px;
  height:40px;
 }
 

@@ -4,7 +4,7 @@
        audio.play(); 
        alert("Read instructions on the right hand side before proceeding..");
        if('ontouchstart' in window){
-       alert("swipe left,look into instructions..touching on gamearea fires arrows..use up and down buttons to move");
+       alert("Look into instructions..touching on gamearea fires arrows..use up and down buttons to move");
         
        }
        var arrowX=20;
@@ -175,6 +175,7 @@
                       }
                    if(gamecount==10) 
                       {clearInterval(interval);
+                             gameover();
                        document.getElementById("targetz").innerHTML="<b>GAME OVER</b>"+"<br />"+"Score="+score}                                                  
              
    
@@ -285,7 +286,14 @@
                function shootp()
                 {  audio.play();
                    played=true;
-                 }  
+                 } 
+              function gameover() 
+                 {
+                   ctx.font = "30px Comic Sans MS";
+                             ctx.fillStyle = "red";
+                     ctx.textAlign = "center";
+                 ctx.fillText("Game Over", canvas.width/2, canvas.height/2);
+                       }
 
                 
          var interval=setInterval(game,100);//set interval to make the movements happen continuously

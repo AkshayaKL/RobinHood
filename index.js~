@@ -175,6 +175,7 @@
                       }
                    if(gamecount==10) 
                       {clearInterval(interval);
+                             gameover();
                        document.getElementById("targetz").innerHTML="<b>GAME OVER</b>"+"<br />"+"Score="+score}                                                  
              
    
@@ -283,9 +284,16 @@
                      }
                        }
                function shootp()
-                {
+                {  audio.play();
                    played=true;
-                 }  
+                 } 
+              function gameover() 
+                 {
+                   ctx.font = "30px Comic Sans MS";
+                             ctx.fillStyle = "red";
+                     ctx.textAlign = "center";
+                 ctx.fillText("Game Over", canvas.width/2, canvas.height/2);
+                       }
 
                 
          var interval=setInterval(game,100);//set interval to make the movements happen continuously
