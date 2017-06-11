@@ -2,7 +2,11 @@
        var ctx=canvas.getContext("2d");
        var audio=document.getElementById("audio");
        audio.play(); 
-       alert("Read instructions on the right hand side before proceeding");
+       alert("Read instructions on the right hand side before proceeding..");
+       if('ontouchstart' in window){
+       alert("swipe left,look into instructions..touching on gamearea fires arrows..use up and down buttons to move");
+        
+       }
        var arrowX=20;
        var arrowY=50;
        var arrowLength=25;
@@ -31,6 +35,8 @@
        var Paused=false; 
              var gamecount=0;//declaring variables
        var starcount=0; 
+       var up=document.getElementById("arrow-up");
+       var down=document.getElementById("arrow-down");
       drawbullseye();
       drawarrow();
       document.addEventListener("keydown",shoot,false);
@@ -39,8 +45,11 @@
       document.addEventListener("keydown",movedown,false);
       var restart=document.getElementById("restart");
       document.addEventListener("keydown",gamepause,false);
-       restart.addEventListener("click",restarting);         //adding Event Listeners for keyboard activities
-      function drawarrow()
+      restart.addEventListener("click",restarting);         //adding Event Listeners for keyboard activities
+      canvas.addEventListener("touchend",shootp,false);
+      up.addEventListener("touchend",moveupp,false);
+      down.addEventListener("touchend",movedownn,false); 
+        function drawarrow()
        {
   
             ctx.beginPath();
@@ -193,6 +202,19 @@
                 }                  
   
               }
+                function moveupp()
+               {
+                 
+                {if((arrowY>=0)&&(arrowX==20)&&(gamecount!=10))
+  
+                    {
+                        arrowY-=2;
+                        ay=arrowY-10;
+                       ctx.drawImage(img,ax,ay,30,30);
+                    }
+                }                  
+  
+              }
               function restarting()
                {
                   location.reload();
@@ -211,7 +233,22 @@
                    }
            }
 
-            }//to move archer up and down
+            }
+              function movedownn( )
+             {
+                 
+          {if((arrowY<=canvas.height)&&(arrowX==20)&&(gamecount!=10))
+
+
+                  {
+                   arrowY+=2;
+
+                   ay=arrowY-10;
+                 ctx.drawImage(img,ax,ay,30,30);
+                   }
+           }
+
+            }                //to move archer up and down
                 function drawman()   
     
               {
@@ -245,6 +282,10 @@
                           Paused=true;
                      }
                        }
+               function shootp()
+                {
+                   played=true;
+                 }  
 
                 
          var interval=setInterval(game,100);//set interval to make the movements happen continuously

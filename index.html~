@@ -1,7 +1,7 @@
     <!DOCTYPE html>
     <head>
-      <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1 ,height=device-height" >
+      <meta charset="utf-8" ></meta>
+     <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no">
        <link rel="stylesheet" href="style.css">
        <title>Robin Hood</title>
        </head>
@@ -24,13 +24,14 @@
            </ul>  
     </span>
                              <audio id="audio" src="music.wav" autostart="false"></audio>
-                            <button id="music">music</button>
+                            <button id="restart">restart</button>  
                             <img src="archer.png" id="archer"></img>
                             <img style="display:none" id="heart" src="heart.gif"></img>
                             <img  id="farcher" src="farcher.png" style="display:none"></img>
                             <img style="display:none" id="male" src="male.png"></img>
                           <img style="display:none" id="three" src="three.png"></img>
-                           <img style="display:none" id="minus" src="minus.png"></img> 
+                           <img style="display:none" id="minus" src="minus.png"></img>
+                            
                           <p style="color:white">Arrows used :<a id="arrowsused" style="color:white"></a></p> 
                             <script src="index.js"></script>
   
