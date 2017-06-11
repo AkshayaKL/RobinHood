@@ -1,13 +1,18 @@
     <!DOCTYPE html>
     <head>
       <meta charset="utf-8" ></meta>
-     <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6, user-scalable=no">
+      
+      
+           
        <link rel="stylesheet" href="style.css">
        <title>Robin Hood</title>
        </head>
        <body>
        <canvas id="mycanvas"></canvas>
        <span style="color:white">Score:  <a id="score"></a></span>
+       <button id="arrow-up">up</button>
+       
        <span id="targetz">
             <ul>
               <li>Use up and down arrow keys to move archer</li>
@@ -26,6 +31,8 @@
                              <audio id="audio" src="music.wav" autostart="false"></audio>
                             <button id="restart">restart</button>  
                             <img src="archer.png" id="archer"></img>
+                            
+                          <button id="arrow-down">down</button> 
                             <img style="display:none" id="heart" src="heart.gif"></img>
                             <img  id="farcher" src="farcher.png" style="display:none"></img>
                             <img style="display:none" id="male" src="male.png"></img>

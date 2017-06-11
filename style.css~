@@ -3,7 +3,7 @@
   border:2px solid black;
   width:500px;
   height:500px;
-  background:url(/home/home/Desktop/RobinHood/picture.jpg);
+  background:url("https://opengameart.org/sites/default/files/dark%20background.png");
 }
 #targetz
 {
@@ -14,7 +14,18 @@
   
   background-color: #ADD8E6 ;
 }
+#score
+{
+color:white;
+}
  body
 {
 background:black;
 }
+#arrow-up,#arrow-down
+{
+ width:40px;
+ height:40px;
+}
+
+

@@ -22,4 +22,10 @@ color:white;
 {
 background:black;
 }
+#arrow-up,#arrow-down
+{
+ width:60px;
+ height:40px;
+}
+
 
